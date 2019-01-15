@@ -1,7 +1,7 @@
 // Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.
 
 #include "FPSTestCharacter.h"
-#include "FPSTestProjectile.h"
+#include "Weapons/FPSProjectile.h"
 #include "Animation/AnimInstance.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -150,7 +150,7 @@ void AFPSTestCharacter::OnFire()
 			{
 				const FRotator SpawnRotation = VR_MuzzleLocation->GetComponentRotation();
 				const FVector SpawnLocation = VR_MuzzleLocation->GetComponentLocation();
-				World->SpawnActor<AFPSTestProjectile>(ProjectileClass, SpawnLocation, SpawnRotation);
+				World->SpawnActor<AFPSProjectile>(ProjectileClass, SpawnLocation, SpawnRotation);
 			}
 			else
 			{
@@ -163,7 +163,7 @@ void AFPSTestCharacter::OnFire()
 				ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
 
 				// spawn the projectile at the muzzle
-				World->SpawnActor<AFPSTestProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+				World->SpawnActor<AFPSProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
 			}
 		}
 	}
